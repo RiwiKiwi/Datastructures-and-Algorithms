@@ -1,18 +1,36 @@
 class HashMap:
+  """
+  Constructor
+  """
   def __init__(self, array_size):
     self.array_size = array_size
     self.array = [None for item in range(array_size)]
 
   def hash(self, key,count_collisions = 0):
+    """
+    Hashes the given key in our array
+    :param key: inputkey
+    :param count_collisions: collision-counter
+    :return: integer
+    """
     key_bytes = key.encode()
     hash_code = sum(key_bytes)
     return hash_code + count_collisions
-
   def compressor(self,hash_code):
-      return hash_code % self.array_size
+    """
+    :param hash_code: return def hash(key,collisions)
+    :return: integer
+    """
+    return hash_code % self.array_size
 
   #MY SETTER
   def assign(self,key,value):
+    """
+    Setting value in the hashmap
+    :param key: searchkey
+    :param value: value
+    :return: /
+    """
     get_hash_code = self.hash(key)
     getindex = self.compressor(get_hash_code)
     # self.array[getindex] = value
@@ -53,6 +71,11 @@ class HashMap:
 
   #MY GETTER
   def retrieve(self,key):
+    """
+    Getter of value using the searchkey
+    :param key: searchkey
+    :return: /
+    """
     get_hash_code = self.hash(key)
     getindex =  self.compressor(get_hash_code)
     # 2 keys could point at the same arrayindex so store it first in a variable

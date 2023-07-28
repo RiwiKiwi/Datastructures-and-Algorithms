@@ -173,6 +173,39 @@ class LinkedList:
                 slow_pointer = slow_pointer.get_next_node()
         return slow_pointer
 
+    def find_max(self):
+        list_elements = []
+        curr_node = self.get_head_node()
+        while curr_node:
+            if curr_node.get_value() == None:
+                break
+            list_elements.append(curr_node.get_value())
+            curr_node = curr_node.get_next_node()
+        return max(list_elements)
+    def find_min(self):
+        list_elements = []
+        curr_node = self.get_head_node()
+        while curr_node != None:
+            if curr_node.get_value() == None:
+                break
+            list_elements.append(curr_node.get_value())
+            curr_node = curr_node.get_next_node()
+        return min(list_elements)
+    def sort_list(self):
+        make_newlist = LinkedList()
+        sort_elements = []
+        curr_node = self.get_head_node()
+        while curr_node:
+            if curr_node.get_value() == None:
+                break
+            else:
+                sort_elements.append(curr_node.get_value())
+                curr_node = curr_node.get_next_node()
+        sort_elements.sort()
+        for i in sort_elements[::-1]:
+            make_newlist.insert_beginning(i)
+        return make_newlist
+
 ############################################### TEST CODE ##############################################################
 ll = LinkedList()
 ll.insert_beginning(1)
@@ -181,6 +214,9 @@ ll.insert_beginning(3)
 print(ll.stringify_list())
 print(ll.get_head_node().get_value())
 print(ll.get_head_node().get_next_node().get_value())
+print(ll.find_max())
+print(ll.find_min())
+print(ll.sort_list())
 
 
 
