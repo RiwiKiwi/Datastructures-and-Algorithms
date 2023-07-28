@@ -174,6 +174,10 @@ class LinkedList:
         return slow_pointer
 
     def find_max(self):
+        """
+        Returns the max-element of a linkedlist
+        :return: max-eln
+        """
         list_elements = []
         curr_node = self.get_head_node()
         while curr_node:
@@ -183,6 +187,10 @@ class LinkedList:
             curr_node = curr_node.get_next_node()
         return max(list_elements)
     def find_min(self):
+        """
+        Returns the min-element of a linkedlist
+        :return: min-eln
+        """
         list_elements = []
         curr_node = self.get_head_node()
         while curr_node != None:
@@ -192,6 +200,10 @@ class LinkedList:
             curr_node = curr_node.get_next_node()
         return min(list_elements)
     def sort_list(self):
+        """
+        gives the linkedlist sorted
+        :return: linkedlist
+        """
         make_newlist = LinkedList()
         sort_elements = []
         curr_node = self.get_head_node()
@@ -206,6 +218,25 @@ class LinkedList:
             make_newlist.insert_beginning(i)
         return make_newlist
 
+    def get_index(self,value):
+        """
+        Returns the index of the given value
+        :param value: data present in linkedlist
+        :return: index or string (not found)
+        """
+        curr_node = self.get_head_node()
+        index = 0
+        while curr_node.get_value() != None:
+            if curr_node.get_value() == value:
+                return index
+            else:
+                curr_node = curr_node.get_next_node()
+                index += 1
+                continue
+        return "The value {} is not found in our linkedlist".format(1)
+
+
+
 ############################################### TEST CODE ##############################################################
 ll = LinkedList()
 ll.insert_beginning(1)
@@ -217,6 +248,7 @@ print(ll.get_head_node().get_next_node().get_value())
 print(ll.find_max())
 print(ll.find_min())
 print(ll.sort_list())
+print(ll.get_index(1))
 
 
 
