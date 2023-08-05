@@ -1,5 +1,5 @@
-# My_Datastructures
-Here are some datastructures that I made during my course GAS
+# Datastructures and Algorithms
+Here are some datastructures that I made with some algorithms during the lecture
 
 Note: my hashmap only has open addressing methods for now
 
